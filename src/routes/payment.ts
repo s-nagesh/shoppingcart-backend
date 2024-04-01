@@ -4,26 +4,25 @@ import {
   allCoupons,
   applyDiscount,
   createPaymentIntent,
-  //   createPaymentIntent,
   deleteCoupon,
   newCoupon,
 } from "../controllers/payment.js";
 
 const router = express.Router();
 
-// route - /api/v1/payment/create
+// route - /payment/create
 router.post("/create", createPaymentIntent);
 
-// route - /api/v1/payment/coupon/new
+// route - /payment/coupon/new
 router.get("/discount", applyDiscount);
 
-// route - /api/v1/payment/coupon/new
+// route - /payment/coupon/new
 router.post("/createcoupen", adminOnly, newCoupon);
 
-// route - /api/v1/payment/coupon/all
+// route - /payment/coupon/all
 router.get("/allcoupen", adminOnly, allCoupons);
 
-// route - /api/v1/payment/coupon/:id
+// route - /payment/coupon/:id
 router.delete("/:id", adminOnly, deleteCoupon);
 
 export default router;
